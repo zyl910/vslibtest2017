@@ -13,12 +13,14 @@ Class Library project (类库项目):
 
 App project (应用项目):
 
-- TestConsole: Console App (.NET Framework)
-- TestConsoleNCore: Console App (.NET Framework)
+- TestConsole: Console App (.NET Framework). Allow unsafe code.
+- TestConsoleNCore: Console App (.NET Core)
 - TestWform: Windows Forms App (.NET Framework)
 - TestWpf: WPF App (.NET Framework)
 - TestUwp: Blank App (Universal Windows)
 - TestAsp: ASP.NET Web Application (.NET Framework)
+- TestAspNCore: ASP.NET Core Web Application (.NET Core)
+- TestAspNCoreFx: ASP.NET Core Web Application (.NET Framework)
 - TestXnaPhone: Windows Phone Game (4.0)
 - TestXnaSilverlight: Windows Phone Silverlight and XNA Application
 - TestXna: Windows Game (4.0)
