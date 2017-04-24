@@ -5,7 +5,13 @@ VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{47071BA7-8A14-4146-9533-83ACAC986440}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "LibShared", "LibShared\LibShared.shproj", "{87599018-BFEA-4C66-A606-0CA057207A21}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		LibShared\LibShared.projitems*{47071ba7-8a14-4146-9533-83acac986440}*SharedItemsImports = 4
+		LibShared\LibShared.projitems*{87599018-bfea-4c66-a606-0ca057207a21}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
