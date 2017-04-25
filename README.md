@@ -17,7 +17,7 @@ App project (应用项目):
 - TestConsoleNCore: Console App (.NET Core)
 - TestWform: Windows Forms App (.NET Framework)
 - TestWpf: WPF App (.NET Framework)
-- TestUwp: Blank App (Universal Windows)
+- TestUwp: Blank App (Universal Windows). Allow unsafe code.
 - TestAsp: ASP.NET Web Application (.NET Framework)
 - TestAspNCore: ASP.NET Core Web Application (.NET Core)
 - TestAspNCoreFx: ASP.NET Core Web Application (.NET Framework)
