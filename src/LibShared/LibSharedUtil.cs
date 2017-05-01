@@ -8,6 +8,107 @@ namespace LibShared {
 	/// VS Class Library test util（VS类库项目测试工具）.
 	/// </summary>
 	public class LibSharedUtil {
+		/// <summary>
+		/// Define constants(Conditional compilation symbols) field (定义的常量(条件编译符号)字段) .
+		/// </summary>
+		private static readonly string[] m_DefineConstants = {
+#if DEBUG
+			"DEBUG",
+#endif
+#if TRACE
+			"TRACE",
+#endif
+#if RELEASE
+			"RELEASE",
+#endif
+#if CODE_ANALYSIS
+			"CODE_ANALYSIS",
+#endif
+#if UNSAFE
+			"UNSAFE",
+#endif
+#if NETFX_CORE
+			"NETFX_CORE",
+#endif
+#if WINDOWS_UWP
+			"WINDOWS_UWP",
+#endif
+#if NET20
+			"NET20",
+#endif
+#if NET30
+			"NET30",
+#endif
+#if NET35
+			"NET35",
+#endif
+#if NET40
+			"NET40",
+#endif
+#if NET45
+			"NET45",
+#endif
+#if NET451
+			"NET451",
+#endif
+#if NET452
+			"NET452",
+#endif
+#if NET46
+			"NET46",
+#endif
+#if NET461
+			"NET461",
+#endif
+#if NET462
+			"NET462",
+#endif
+#if NET47
+			"NET47",
+#endif
+#if NETCOREAPP1_0
+			"NETCOREAPP1_0",
+#endif
+#if NETCOREAPP1_1
+			"NETCOREAPP1_1",
+#endif
+#if NETCOREAPP2_0
+			"NETCOREAPP2_0",
+#endif
+#if NETSTANDARD1_0
+			"NETSTANDARD1_0",
+#endif
+#if NETSTANDARD1_1
+			"NETSTANDARD1_1",
+#endif
+#if NETSTANDARD1_2
+			"NETSTANDARD1_2",
+#endif
+#if NETSTANDARD1_3
+			"NETSTANDARD1_3",
+#endif
+#if NETSTANDARD1_4
+			"NETSTANDARD1_4",
+#endif
+#if NETSTANDARD1_5
+			"NETSTANDARD1_5",
+#endif
+#if NETSTANDARD1_6
+			"NETSTANDARD1_6",
+#endif
+#if NETSTANDARD2_0
+			"NETSTANDARD2_0",
+#endif
+		};
+
+		/// <summary>
+		/// Define constants(Conditional compilation symbols) (定义的常量(条件编译符号)) .
+		/// </summary>
+		public static string[] DefineConstants {
+			get {
+				return m_DefineConstants;
+			}
+		}
 
 		/// <summary>
 		/// 将64位整数转为版本字符串.
@@ -15,19 +116,19 @@ namespace LibShared {
 		/// <param name="v">整数值.</param>
 		/// <returns>返回版本字符串.</returns>
 		public static string VersionFromInt(ulong v) {
-			ulong v1 = (v & 0xFFFF000000000000L) >> 48;
-			ulong v2 = (v & 0x0000FFFF00000000L) >> 32;
-			ulong v3 = (v & 0x00000000FFFF0000L) >> 16;
-			ulong v4 = (v & 0x000000000000FFFFL);
+			ulong v1 = (v & 0xFFFF000000000000UL) >> 48;
+			ulong v2 = (v & 0x0000FFFF00000000UL) >> 32;
+			ulong v3 = (v & 0x00000000FFFF0000UL) >> 16;
+			ulong v4 = (v & 0x000000000000FFFFUL);
 			return string.Format("{0}.{1}.{2}.{3}", v1, v2, v3, v4);
 		}
 
 		/// <summary>
-		/// Append common info (添加公用信息).
+		/// Output common info (输出公用信息).
 		/// </summary>
 		/// <param name="sb">String buffer (字符串缓冲区).</param>
 		/// <param name="name">Project name (项目名).</param>
-		public static void AppendCommon(StringBuilder sb, string name) {
+		public static void OutputCommon(StringBuilder sb, string name) {
 			sb.AppendLine(name);
 			sb.AppendLine();
 			// Environment
@@ -53,6 +154,24 @@ namespace LibShared {
 			sb.AppendLine(string.Format("Assembly.Location:\t{0}", assembly.Location));
 #endif
 			sb.AppendLine();
+			// DefineConstants.
+			OutputDefineConstants(sb, name);
+			sb.AppendLine();
 		}
+
+		/// <summary>
+		/// Output define constants(Conditional compilation symbols) (输出定义常量(条件编译符号)).
+		/// </summary>
+		/// <param name="sb">String buffer (字符串缓冲区).</param>
+		/// <param name="name">Project name (项目名).</param>
+		public static void OutputDefineConstants(StringBuilder sb, string name) {
+			string str = "[DefineConstants]\t# Conditional compilation symbols";
+			if (!string.IsNullOrEmpty(str)) str += " by " + name;
+			sb.AppendLine(str);
+			foreach(string s in DefineConstants) {
+				sb.AppendLine(s);
+			}
+		}
+
 	}
 }

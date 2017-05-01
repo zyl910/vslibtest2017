@@ -35,17 +35,17 @@ namespace TestUwp {
 
 		private void btnInfo_Click(object sender, RoutedEventArgs e) {
 			StringBuilder sb = new StringBuilder();
-			LibSharedUtil.AppendCommon(sb, "TestUwp");
-			AppendInfo(sb);
+			LibSharedUtil.OutputCommon(sb, "TestUwp");
+			OutputInfo(sb);
 			// show.
 			txtOut.Text = sb.ToString();
 		}
 
 		/// <summary>
-		/// 添加信息.
+		/// 输出信息.
 		/// </summary>
 		/// <param name="sb">String buffer (字符串缓冲区).</param>
-		public static void AppendInfo(StringBuilder sb) {
+		public static void OutputInfo(StringBuilder sb) {
 			// AnalyticsVersionInfo
 			sb.AppendLine("[AnalyticsVersionInfo]");
 			AnalyticsVersionInfo ai = AnalyticsInfo.VersionInfo;

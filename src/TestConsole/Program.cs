@@ -9,7 +9,7 @@ namespace TestConsole {
 	class Program {
 		static void Main(string[] args) {
 			StringBuilder sb = new StringBuilder();
-			LibSharedUtil.AppendCommon(sb, "TestConsole");
+			LibSharedUtil.OutputCommon(sb, "TestConsole");
 			// show.
 			Console.WriteLine(sb.ToString());
 		}
