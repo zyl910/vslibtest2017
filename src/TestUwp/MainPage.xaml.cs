@@ -1,11 +1,16 @@
 ﻿using LibShared;
+using LibUwp;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
+using Windows.Devices;
+using Windows.Devices.Enumeration;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Security.ExchangeActiveSyncProvisioning;
@@ -33,10 +38,11 @@ namespace TestUwp {
 			btnInfo_Click(btnInfo, null);
 		}
 
-		private void btnInfo_Click(object sender, RoutedEventArgs e) {
+		private async void btnInfo_Click(object sender, RoutedEventArgs e) {
 			StringBuilder sb = new StringBuilder();
 			LibSharedUtil.OutputCommon(sb, "TestUwp");
-			OutputInfo(sb);
+			LibUwpUtil.OutputInfo(sb, "TestUwp");
+			await OutputInfo(sb);
 			// show.
 			txtOut.Text = sb.ToString();
 		}
@@ -45,13 +51,13 @@ namespace TestUwp {
 		/// 输出信息.
 		/// </summary>
 		/// <param name="sb">String buffer (字符串缓冲区).</param>
-		public static void OutputInfo(StringBuilder sb) {
+		public static async Task OutputInfo(StringBuilder sb) {
 			// AnalyticsVersionInfo
 			sb.AppendLine("[AnalyticsVersionInfo]");
 			AnalyticsVersionInfo ai = AnalyticsInfo.VersionInfo;
 			sb.AppendLine(string.Format("DeviceFamily:\t{0}", ai.DeviceFamily));
 			sb.AppendLine(string.Format("DeviceFamilyVersion:\t{0}", ai.DeviceFamilyVersion));
-			sb.AppendLine(string.Format("DeviceFamilyVersion$:\t{0}", LibSharedUtil.VersionFromInt(ulong.Parse(ai.DeviceFamilyVersion)) ));
+			sb.AppendLine(string.Format("DeviceFamilyVersion$:\t{0}", LibSharedUtil.VersionFromInt(ulong.Parse(ai.DeviceFamilyVersion))));
 			sb.AppendLine();
 			// Package
 			sb.AppendLine("[Package]");
@@ -90,7 +96,41 @@ namespace TestUwp {
 			sb.AppendLine(string.Format("SystemProductName:\t{0}", eas.SystemProductName));
 			sb.AppendLine(string.Format("SystemSku:\t{0}", eas.SystemSku));
 			sb.AppendLine();
+			// device info.
+			OutputInfo_ILowLevelDevicesAggregateProvider(sb);
+			await OutputInfo_Device​Information(sb);
+
 		}
 
+		/// <summary>
+		/// 输出信息 - ILowLevelDevicesAggregateProvider.
+		/// </summary>
+		/// <param name="sb">String buffer (字符串缓冲区).</param>
+		public static void OutputInfo_ILowLevelDevicesAggregateProvider(StringBuilder sb) {
+			ILowLevelDevicesAggregateProvider provider = LowLevelDevicesController.DefaultProvider;
+			sb.AppendLine("[ILowLevelDevicesAggregateProvider]");
+			sb.AppendLine(string.Format("LowLevelDevicesController.DefaultProvider:\t{0}", (null!=provider)? provider.ToString() : "null"));
+			sb.AppendLine();
+		}
+
+		/// <summary>
+		/// 输出信息 - Device​Information.
+		/// </summary>
+		/// <param name="sb">String buffer (字符串缓冲区).</param>
+		public static async Task OutputInfo_Device​Information(StringBuilder sb) {
+			DeviceInformationCollection lst = await Device​Information.FindAllAsync();
+			sb.AppendLine("[Device​Information]");
+			sb.AppendLine(string.Format("Device​Information.FindAllAsync:\t{0}", (null != lst) ? lst.ToString() : "null"));
+			sb.AppendLine(string.Format("@Count:\t{0}", lst.Count));
+			for(int i=0; i< lst.Count; ++i) {
+				DeviceInformation di = lst[i];
+				if (null == di) continue;
+				if (!di.IsEnabled) continue;
+				string str = string.Format("[{0}]:\t{1}, {2}, {3}"
+					, i, di.Name, di.Kind, di.Id);
+				sb.AppendLine(str);
+			}
+			sb.AppendLine();
+		}
 	}
 }

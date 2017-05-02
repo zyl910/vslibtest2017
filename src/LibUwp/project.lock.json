@@ -2168,13 +2168,6 @@
             "rid": "aot"
           }
         }
-      },
-      "LibUwp/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0",
-        "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
-        }
       }
     },
     "UAP,Version=v10.0/win10-arm": {
@@ -4426,13 +4419,6 @@
         },
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
-        }
-      },
-      "LibUwp/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0",
-        "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
         }
       }
     },
@@ -6725,13 +6711,6 @@
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "LibUwp/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0",
-        "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
-        }
       }
     },
     "UAP,Version=v10.0/win10-x64": {
@@ -8992,13 +8971,6 @@
         },
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
-        }
-      },
-      "LibUwp/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0",
-        "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
         }
       }
     },
@@ -11300,13 +11272,6 @@
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "LibUwp/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0",
-        "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
-        }
       }
     },
     "UAP,Version=v10.0/win10-x86": {
@@ -13567,13 +13532,6 @@
         },
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
-        }
-      },
-      "LibUwp/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0",
-        "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
         }
       }
     },
@@ -15874,13 +15832,6 @@
         },
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
-        }
-      },
-      "LibUwp/1.0.0": {
-        "type": "project",
-        "framework": "UAP,Version=v10.0",
-        "dependencies": {
-          "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"
         }
       }
     }
@@ -22051,11 +22002,6 @@
         "system.xml.xmlserializer.4.0.11.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
-    },
-    "LibUwp/1.0.0": {
-      "type": "project",
-      "path": "../LibUwp/project.json",
-      "msbuildProject": "../LibUwp/LibUwp.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -22069,20 +22015,11 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "E:\\zylSync\\cs\\vslibtest2017\\src\\TestUwp\\TestUwp.csproj",
-      "projectName": "TestUwp",
-      "projectPath": "E:\\zylSync\\cs\\vslibtest2017\\src\\TestUwp\\TestUwp.csproj",
-      "projectJsonPath": "E:\\zylSync\\cs\\vslibtest2017\\src\\TestUwp\\project.json",
-      "projectStyle": "ProjectJson",
-      "frameworks": {
-        "uap10.0": {
-          "projectReferences": {
-            "E:\\zylSync\\cs\\vslibtest2017\\src\\LibUwp\\LibUwp.csproj": {
-              "projectPath": "E:\\zylSync\\cs\\vslibtest2017\\src\\LibUwp\\LibUwp.csproj"
-            }
-          }
-        }
-      }
+      "projectUniqueName": "E:\\zylSync\\cs\\vslibtest2017\\src\\LibUwp\\LibUwp.csproj",
+      "projectName": "LibUwp",
+      "projectPath": "E:\\zylSync\\cs\\vslibtest2017\\src\\LibUwp\\LibUwp.csproj",
+      "projectJsonPath": "E:\\zylSync\\cs\\vslibtest2017\\src\\LibUwp\\project.json",
+      "projectStyle": "ProjectJson"
     },
     "dependencies": {
       "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.3"

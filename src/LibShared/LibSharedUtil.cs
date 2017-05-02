@@ -156,7 +156,6 @@ namespace LibShared {
 			sb.AppendLine();
 			// DefineConstants.
 			OutputDefineConstants(sb, onproject);
-			sb.AppendLine();
 		}
 
 		/// <summary>
@@ -171,6 +170,7 @@ namespace LibShared {
 			foreach(string s in DefineConstants) {
 				sb.AppendLine(s);
 			}
+			sb.AppendLine();
 		}
 
 	}

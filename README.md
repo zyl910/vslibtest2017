@@ -7,8 +7,8 @@ Class Library project (类库项目):
 - LibShared: Shared Project
 - LibDNFx: Class Library (.NET Framework)
 - LibDNCore: Class Library (.NET Core). Allow unsafe code.
-- LibDNStd: Class Library (.NET Standard)
-- LibUwp: Class Library (Universal Windows)
+- LibDNStd: Class Library (.NET Standard).
+- LibUwp: Class Library (Universal Windows). Allow unsafe code.
 - LibPortable: Class Library (Portable)
 
 App project (应用项目):
