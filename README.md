@@ -5,11 +5,11 @@ Test VS2017 Class Library project type (测试VS2017类库项目类型).
 
 Class Library project (类库项目):
 - LibShared: Shared Project
-- LibPortable: Class Library (Portable)
-- LibUwp: Class Library (Universal Windows)
 - LibDNFx: Class Library (.NET Framework)
-- LibDNCore: Class Library (.NET Core)
+- LibDNCore: Class Library (.NET Core). Allow unsafe code.
 - LibDNStd: Class Library (.NET Standard)
+- LibUwp: Class Library (Universal Windows)
+- LibPortable: Class Library (Portable)
 
 App project (应用项目):
 
