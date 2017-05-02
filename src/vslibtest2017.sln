@@ -10,6 +10,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUwp", "TestUwp\TestUwp.csproj", "{30DCE9E2-2F61-4674-B1E4-165644E04664}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsoleNCore", "TestConsoleNCore\TestConsoleNCore.csproj", "{C3A41DE7-DC24-4579-A2F0-92D8D440A157}"
+	ProjectSection(ProjectDependencies) = postProject
+		{11EED277-D12B-4348-9B8C-06D39C0DFE24} = {11EED277-D12B-4348-9B8C-06D39C0DFE24}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibDNCore", "LibDNCore\LibDNCore.csproj", "{11EED277-D12B-4348-9B8C-06D39C0DFE24}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -80,6 +85,22 @@ Global
 		{C3A41DE7-DC24-4579-A2F0-92D8D440A157}.Release|x64.Build.0 = Release|Any CPU
 		{C3A41DE7-DC24-4579-A2F0-92D8D440A157}.Release|x86.ActiveCfg = Release|Any CPU
 		{C3A41DE7-DC24-4579-A2F0-92D8D440A157}.Release|x86.Build.0 = Release|Any CPU
+		{11EED277-D12B-4348-9B8C-06D39C0DFE24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11EED277-D12B-4348-9B8C-06D39C0DFE24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11EED277-D12B-4348-9B8C-06D39C0DFE24}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{11EED277-D12B-4348-9B8C-06D39C0DFE24}.Debug|ARM.Build.0 = Debug|Any CPU
+		{11EED277-D12B-4348-9B8C-06D39C0DFE24}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{11EED277-D12B-4348-9B8C-06D39C0DFE24}.Debug|x64.Build.0 = Debug|Any CPU
+		{11EED277-D12B-4348-9B8C-06D39C0DFE24}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{11EED277-D12B-4348-9B8C-06D39C0DFE24}.Debug|x86.Build.0 = Debug|Any CPU
+		{11EED277-D12B-4348-9B8C-06D39C0DFE24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11EED277-D12B-4348-9B8C-06D39C0DFE24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11EED277-D12B-4348-9B8C-06D39C0DFE24}.Release|ARM.ActiveCfg = Release|Any CPU
+		{11EED277-D12B-4348-9B8C-06D39C0DFE24}.Release|ARM.Build.0 = Release|Any CPU
+		{11EED277-D12B-4348-9B8C-06D39C0DFE24}.Release|x64.ActiveCfg = Release|Any CPU
+		{11EED277-D12B-4348-9B8C-06D39C0DFE24}.Release|x64.Build.0 = Release|Any CPU
+		{11EED277-D12B-4348-9B8C-06D39C0DFE24}.Release|x86.ActiveCfg = Release|Any CPU
+		{11EED277-D12B-4348-9B8C-06D39C0DFE24}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

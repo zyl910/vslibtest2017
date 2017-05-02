@@ -7,7 +7,7 @@ namespace LibShared {
 	/// <summary>
 	/// VS Class Library test util（VS类库项目测试工具）.
 	/// </summary>
-	public class LibSharedUtil {
+	internal class LibSharedUtil {
 		/// <summary>
 		/// Define constants(Conditional compilation symbols) field (定义的常量(条件编译符号)字段) .
 		/// </summary>
@@ -127,9 +127,9 @@ namespace LibShared {
 		/// Output common info (输出公用信息).
 		/// </summary>
 		/// <param name="sb">String buffer (字符串缓冲区).</param>
-		/// <param name="name">Project name (项目名).</param>
-		public static void OutputCommon(StringBuilder sb, string name) {
-			sb.AppendLine(name);
+		/// <param name="onproject">On project (所处项目)</param>
+		public static void OutputCommon(StringBuilder sb, string onproject) {
+			sb.AppendLine(onproject);
 			sb.AppendLine();
 			// Environment
 			sb.AppendLine("[Environment]");
@@ -155,7 +155,7 @@ namespace LibShared {
 #endif
 			sb.AppendLine();
 			// DefineConstants.
-			OutputDefineConstants(sb, name);
+			OutputDefineConstants(sb, onproject);
 			sb.AppendLine();
 		}
 
@@ -163,10 +163,10 @@ namespace LibShared {
 		/// Output define constants(Conditional compilation symbols) (输出定义常量(条件编译符号)).
 		/// </summary>
 		/// <param name="sb">String buffer (字符串缓冲区).</param>
-		/// <param name="name">Project name (项目名).</param>
-		public static void OutputDefineConstants(StringBuilder sb, string name) {
+		/// <param name="onproject">On project (所处项目)</param>
+		public static void OutputDefineConstants(StringBuilder sb, string onproject) {
 			string str = "[DefineConstants]\t# Conditional compilation symbols";
-			if (!string.IsNullOrEmpty(str)) str += " by " + name;
+			if (!string.IsNullOrEmpty(str)) str += " on " + onproject;
 			sb.AppendLine(str);
 			foreach(string s in DefineConstants) {
 				sb.AppendLine(s);

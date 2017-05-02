@@ -1,4 +1,5 @@
-﻿using LibShared;
+﻿using LibDNCore;
+using LibShared;
 using System;
 using System.Text;
 
@@ -10,6 +11,7 @@ namespace TestConsoleNCore
         {
 			StringBuilder sb = new StringBuilder();
 			LibSharedUtil.OutputCommon(sb, "TestConsoleNCore");
+			LibDNCoreUtil.OutputInfo(sb, "TestConsoleNCore");
 			// show.
 			Console.WriteLine(sb.ToString());
 		}

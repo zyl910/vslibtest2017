@@ -10,5 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)LibSharedUtil.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnusedClass.cs" />
   </ItemGroup>
 </Project>
