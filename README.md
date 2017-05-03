@@ -9,7 +9,8 @@ Class Library project (类库项目):
 - LibDNCore: Class Library (.NET Core). Allow unsafe code.
 - LibDNStd: Class Library (.NET Standard). Allow unsafe code.
 - LibUwp: Class Library (Universal Windows). Allow unsafe code.
-- LibPortable: Class Library (Portable)
+- LibPortable: Class Library (Portable). Profile49, net45+netcoreapp1.0+win8+wpa8+xamarin(android、ios、mac). Disallow unsafe code.
+- LibPortableU: Class Library (Portable). . Allow unsafe code.
 
 App project (应用项目):
 
