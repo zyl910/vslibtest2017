@@ -33,6 +33,9 @@ namespace LibShared {
 #if WINDOWS_UWP
 			"WINDOWS_UWP",
 #endif
+#if NETSTANDARD
+			"NETSTANDARD",
+#endif
 #if NET20
 			"NET20",
 #endif
@@ -133,23 +136,26 @@ namespace LibShared {
 			sb.AppendLine();
 			// Environment
 			sb.AppendLine("[Environment]");
-#if (!NETFX_CORE)
+#if (NETFX_CORE || NETSTANDARD1_0 || NETSTANDARD1_1 || NETSTANDARD1_2 || NETSTANDARD1_3 || NETSTANDARD1_4 || NETSTANDARD1_5 || NETSTANDARD1_6 || NETSTANDARD2_0)
+#else
 			sb.AppendLine(string.Format("Is64BitOperatingSystem:\t{0}", Environment.Is64BitOperatingSystem));
 			sb.AppendLine(string.Format("Is64BitProcess:\t{0}", Environment.Is64BitProcess));
 			sb.AppendLine(string.Format("OSVersion:\t{0}", Environment.OSVersion));
 #endif
 			sb.AppendLine(string.Format("ProcessorCount:\t{0}", Environment.ProcessorCount));
-#if (!NETFX_CORE)
+#if (NETFX_CORE || NETSTANDARD1_0 || NETSTANDARD1_1 || NETSTANDARD1_2 || NETSTANDARD1_3 || NETSTANDARD1_4 || NETSTANDARD1_5 || NETSTANDARD1_6 || NETSTANDARD2_0)
+#else
 			sb.AppendLine(string.Format("Version:\t{0}", Environment.Version));
 #endif
 			sb.AppendLine(string.Format("AssemblyQualifiedName:\t{0}", typeof(Environment).AssemblyQualifiedName));
-#if (NETFX_CORE)
+#if (NETFX_CORE || NETSTANDARD1_0 || NETSTANDARD1_1 || NETSTANDARD1_2 || NETSTANDARD1_3 || NETSTANDARD1_4 || NETSTANDARD1_5 || NETSTANDARD1_6 || NETSTANDARD2_0)
 			Assembly assembly = typeof(Environment).GetTypeInfo().Assembly;
 #else
 			Assembly assembly = typeof(Environment).Assembly;
 #endif
 			sb.AppendLine(string.Format("Assembly.FullName:\t{0}", assembly.FullName));
-#if (!NETFX_CORE)
+#if (NETFX_CORE || NETSTANDARD1_0 || NETSTANDARD1_1 || NETSTANDARD1_2 || NETSTANDARD1_3 || NETSTANDARD1_4 || NETSTANDARD1_5 || NETSTANDARD1_6 || NETSTANDARD2_0)
+#else
 			sb.AppendLine(string.Format("Assembly.ImageRuntimeVersion:\t{0}", assembly.ImageRuntimeVersion));
 			sb.AppendLine(string.Format("Assembly.Location:\t{0}", assembly.Location));
 #endif

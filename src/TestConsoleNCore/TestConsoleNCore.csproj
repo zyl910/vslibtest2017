@@ -21,6 +21,7 @@
     <ProjectReference Include="..\LibDNCore\LibDNCore.csproj">
       <Aliases></Aliases>
     </ProjectReference>
+    <ProjectReference Include="..\LibDNStd\LibDNStd.csproj" />
   </ItemGroup>
 
 </Project>
