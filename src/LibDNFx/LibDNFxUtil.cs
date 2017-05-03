@@ -18,7 +18,7 @@ namespace LibDNFx {
 		/// <param name="onproject">On project (所处项目)</param>
 		public static void OutputInfo(StringBuilder sb, string onproject) {
 			string myproject = "LibDNFx on " + onproject;
-			LibSharedUtil.OutputDefineConstants(sb, myproject);
+			LibSharedUtil.OutputCommon(sb, myproject);
 		}
 	}
 }

@@ -193,13 +193,23 @@ namespace LibShared {
 		}
 
 		/// <summary>
+		/// Output head info (输出头信息).
+		/// </summary>
+		/// <param name="sb">String buffer (字符串缓冲区).</param>
+		/// <param name="onproject">On project (所处项目)</param>
+		public static void OutputHead(StringBuilder sb, string onproject) {
+			sb.AppendLine(onproject);
+			sb.AppendLine();
+			// OutputCommon
+			OutputCommon(sb, onproject);
+		}
+
+		/// <summary>
 		/// Output common info (输出公用信息).
 		/// </summary>
 		/// <param name="sb">String buffer (字符串缓冲区).</param>
 		/// <param name="onproject">On project (所处项目)</param>
 		public static void OutputCommon(StringBuilder sb, string onproject) {
-			sb.AppendLine(onproject);
-			sb.AppendLine();
 			// Environment
 			OutputEnvironment(sb, onproject);
 			// DefineConstants.

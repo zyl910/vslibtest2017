@@ -11,7 +11,7 @@ namespace TestConsole {
 	class Program {
 		static void Main(string[] args) {
 			StringBuilder sb = new StringBuilder();
-			LibSharedUtil.OutputCommon(sb, "TestConsole");
+			LibSharedUtil.OutputHead(sb, "TestConsole");
 			LibDNFxUtil.OutputInfo(sb, "TestConsole");
 			LibDNStdUtil.OutputInfo(sb, "TestConsole");
 			// show.

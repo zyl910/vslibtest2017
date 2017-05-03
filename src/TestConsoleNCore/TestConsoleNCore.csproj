@@ -22,6 +22,7 @@
       <Aliases></Aliases>
     </ProjectReference>
     <ProjectReference Include="..\LibDNStd\LibDNStd.csproj" />
+    <ProjectReference Include="..\LibPortable\LibPortable.csproj" />
   </ItemGroup>
 
 </Project>

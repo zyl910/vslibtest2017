@@ -41,7 +41,7 @@ namespace TestUwp {
 
 		private async void btnInfo_Click(object sender, RoutedEventArgs e) {
 			StringBuilder sb = new StringBuilder();
-			LibSharedUtil.OutputCommon(sb, "TestUwp");
+			LibSharedUtil.OutputHead(sb, "TestUwp");
 			LibUwpUtil.OutputInfo(sb, "TestUwp");
 			LibDNStdUtil.OutputInfo(sb, "TestUwp");
 			await OutputInfo(sb);

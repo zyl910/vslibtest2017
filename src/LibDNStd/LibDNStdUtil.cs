@@ -16,7 +16,7 @@ namespace LibDNStd
 		/// <param name="onproject">On project (所处项目)</param>
 		public static void OutputInfo(StringBuilder sb, string onproject) {
 			string myproject = "LibDNStd on " + onproject;
-			LibSharedUtil.OutputDefineConstants(sb, myproject);
+			LibSharedUtil.OutputCommon(sb, myproject);
 		}
 	}
 }

@@ -15,7 +15,7 @@ namespace LibDNCore
 		/// <param name="onproject">On project (所处项目)</param>
 		public static void OutputInfo(StringBuilder sb, string onproject) {
 			string myproject = "LibDNCore on " + onproject;
-			LibSharedUtil.OutputDefineConstants(sb, myproject);
+			LibSharedUtil.OutputCommon(sb, myproject);
 		}
 	}
 }
