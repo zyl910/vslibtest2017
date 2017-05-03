@@ -56,6 +56,10 @@
       <Project>{9034e403-2b78-49de-a137-1e72b52ebba5}</Project>
       <Name>LibDNFx</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LibDNStd\LibDNStd.csproj">
+      <Project>{4e633365-8640-49fb-9acc-9147f46c3e9d}</Project>
+      <Name>LibDNStd</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\LibShared\LibShared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,5 @@
-﻿using LibShared;
+﻿using LibDNStd;
+using LibShared;
 using LibUwp;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,7 @@ namespace TestUwp {
 			StringBuilder sb = new StringBuilder();
 			LibSharedUtil.OutputCommon(sb, "TestUwp");
 			LibUwpUtil.OutputInfo(sb, "TestUwp");
+			LibDNStdUtil.OutputInfo(sb, "TestUwp");
 			await OutputInfo(sb);
 			// show.
 			txtOut.Text = sb.ToString();

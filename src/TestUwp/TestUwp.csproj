@@ -134,6 +134,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LibDNStd\LibDNStd.csproj">
+      <Project>{4e633365-8640-49fb-9acc-9147f46c3e9d}</Project>
+      <Name>LibDNStd</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LibUwp\LibUwp.csproj">
       <Project>{f94e1f5a-852e-4562-a7c4-3b8ee879f92b}</Project>
       <Name>LibUwp</Name>

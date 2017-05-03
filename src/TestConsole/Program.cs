@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LibShared;
 using LibDNFx;
+using LibDNStd;
 
 namespace TestConsole {
 	class Program {
@@ -12,6 +13,7 @@ namespace TestConsole {
 			StringBuilder sb = new StringBuilder();
 			LibSharedUtil.OutputCommon(sb, "TestConsole");
 			LibDNFxUtil.OutputInfo(sb, "TestConsole");
+			LibDNStdUtil.OutputInfo(sb, "TestConsole");
 			// show.
 			Console.WriteLine(sb.ToString());
 		}
