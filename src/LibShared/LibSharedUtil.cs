@@ -128,6 +128,51 @@ namespace LibShared {
 		}
 
 		/// <summary>
+		/// 判断是不是大端系统.
+		/// </summary>
+		/// <returns>当为大端系统时, 返回true, 否则返回false.</returns>
+		public static bool IsBigEndian() {
+			Int32[] n = { 0x01020304 };
+			byte by;    // first byte.
+#if (UNSAFE)
+			unsafe{
+				fixed(Int32* pn = &n[0]) {
+					byte* pb = (byte*)pn;
+					by = *pb;
+				}
+			}
+#else
+			byte[] byArr = new byte[4];
+			Buffer.BlockCopy(n, 0, byArr, 0, byArr.Length);
+			by = byArr[0];
+#endif
+			return (1 == by);
+		}
+
+		/// <summary>
+		/// 判断是不是小端系统.
+		/// </summary>
+		/// <returns>当为小端系统时, 返回true, 否则返回false.</returns>
+		public static bool IsLittleEndian() {
+			Int32[] n = { 0x01020304 };
+			byte by;    // first byte.
+#if (UNSAFE)
+			unsafe
+			{
+				fixed (Int32* pn = &n[0]) {
+					byte* pb = (byte*)pn;
+					by = *pb;
+				}
+			}
+#else
+			byte[] byArr = new byte[4];
+			Buffer.BlockCopy(n, 0, byArr, 0, byArr.Length);
+			by = byArr[0];
+#endif
+			return (4 == by);
+		}
+
+		/// <summary>
 		/// 取得属性值.
 		/// </summary>
 		/// <param name="typ">类型. 为空时自动根据obj来取类型.</param>
@@ -250,6 +295,8 @@ namespace LibShared {
 			AppendProperty(sb, null, assembly, "FullName");
 			AppendProperty(sb, null, assembly, "ImageRuntimeVersion");
 			AppendProperty(sb, null, assembly, "Location");
+			sb.AppendLine(string.Format("#IsBigEndian:\t{0}", IsBigEndian()));
+			sb.AppendLine(string.Format("#IsLittleEndian:\t{0}", IsLittleEndian()));
 			sb.AppendLine();
 		}
 
