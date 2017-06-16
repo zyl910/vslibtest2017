@@ -128,15 +128,15 @@ namespace LibShared {
 		}
 
 		/// <summary>
-		/// 判断是不是大端系统.
+		/// 取得端序魔数字节. 即返回 0x01020304 在内存中的首字节.
 		/// </summary>
-		/// <returns>当为大端系统时, 返回true, 否则返回false.</returns>
-		public static bool IsBigEndian() {
-			Int32[] n = { 0x01020304 };
+		/// <returns></returns>
+		public static byte GetEndianMagicByte() {
+			UInt32[] n = { 0x01020304 };
 			byte by;    // first byte.
 #if (UNSAFE)
-			unsafe{
-				fixed(Int32* pn = &n[0]) {
+			unsafe {
+				fixed (UInt32* pn = &n[0]) {
 					byte* pb = (byte*)pn;
 					by = *pb;
 				}
@@ -146,7 +146,15 @@ namespace LibShared {
 			Buffer.BlockCopy(n, 0, byArr, 0, byArr.Length);
 			by = byArr[0];
 #endif
-			return (1 == by);
+			return by;
+		}
+
+		/// <summary>
+		/// 判断是不是大端系统.
+		/// </summary>
+		/// <returns>当为大端系统时, 返回true, 否则返回false.</returns>
+		public static bool IsBigEndian() {
+			return (1 == GetEndianMagicByte());
 		}
 
 		/// <summary>
@@ -154,22 +162,7 @@ namespace LibShared {
 		/// </summary>
 		/// <returns>当为小端系统时, 返回true, 否则返回false.</returns>
 		public static bool IsLittleEndian() {
-			Int32[] n = { 0x01020304 };
-			byte by;    // first byte.
-#if (UNSAFE)
-			unsafe
-			{
-				fixed (Int32* pn = &n[0]) {
-					byte* pb = (byte*)pn;
-					by = *pb;
-				}
-			}
-#else
-			byte[] byArr = new byte[4];
-			Buffer.BlockCopy(n, 0, byArr, 0, byArr.Length);
-			by = byArr[0];
-#endif
-			return (4 == by);
+			return (4 == GetEndianMagicByte());
 		}
 
 		/// <summary>
@@ -178,7 +171,7 @@ namespace LibShared {
 		/// <param name="typ">类型. 为空时自动根据obj来取类型.</param>
 		/// <param name="obj">对象.</param>
 		/// <param name="membername">成员名.</param>
-		/// <param name="ishad">是否存在该属性.</param>
+		/// <param name="ishad">返回是否存在该属性.</param>
 		/// <returns>返回属性值.</returns>
 		public static object GetPropertyValue(Type typ, object obj, String membername, out bool ishad) {
 			object rt = null;
